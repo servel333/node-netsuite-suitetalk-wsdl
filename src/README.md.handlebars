@@ -1,0 +1,44 @@
+Contains the [NetSuite SuiteTalk](http://www.netsuite.com/portal/developers/resources/suitetalk-documentation.shtml) [WSDL_v{{ wsdl_year }}_{{ wsdl_major }}_{{ wsdl_minor }} files](http://www.netsuite.com/download/WSDL_v{{ wsdl_year }}_{{ wsdl_major }}_{{ wsdl_minor }}.zip) with zero dependencies.
+
+[![npm version](https://badge.fury.io/js/netsuite-suitetalk-wsdl-v{{ wsdl_year }}-{{ wsdl_major }}.{{ wsdl_minor }}.svg)](https://badge.fury.io/js/netsuite-suitetalk-wsdl-v{{ wsdl_year }}-{{ wsdl_major }}.{{ wsdl_minor }})
+
+## Install
+
+    npm install --save netsuite-suitetalk-wsdl-v{{ wsdl_year }}-{{ wsdl_major }}-{{ wsdl_minor }}
+
+## Usage
+
+```
+const soap = require('soap');
+const wsdl = require('netsuite-suitetalk-wsdl-v{{ wsdl_year }}-{{ wsdl_major }}-{{ wsdl_minor }}');
+
+soap.createClient(wsdl.file, (err, client) => {
+  if(err) {
+    console.log(err);
+    process.exit(1);
+  }
+
+  // client ...
+});
+```
+
+Some additional pre-compiled data is provided with this library.
+
+```
+const _ = require('lodash');
+const wsdl = require('netsuite-suitetalk-wsdl-v{{ wsdl_year }}-{{ wsdl_major }}-{{ wsdl_minor }}');
+
+var wsdlVersion = wsdl.version;
+// "{{ wsdl_year }}_{{ wsdl_major }}"
+
+var wsdlOperations = wsdl.operations;
+// [ "<operation name>"]
+
+var wsdlNamespaces = wsdl.namespaces;
+// { "<namespace prefix>" : "<namespace uri>" }
+
+var wsdlComplexTypes = wsdl.complexTypes;
+// { "<complex type name>" : "<namespace uri>" }
+
+var wsdlComplexTypeNames = _.keys(wsdl.complexTypes);
+```
