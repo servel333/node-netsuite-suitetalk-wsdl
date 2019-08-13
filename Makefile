@@ -37,4 +37,8 @@ publish-%:
 compile: $(addprefix .build/wsdl_v,$(VERSIONS))
 publish: $(addprefix publish-,$(VERSIONS))
 
-
+test:
+	mkdir -p .build/wsdl_v0000_0_0/wsdl
+	touch .build/wsdl_v0000_0_0/wsdl/netsuite.wsdl
+	bin/compile-handlebars.js "0000_0_0" "src/index.js.handlebars" ".build/wsdl_v0000_0_0/index.js"
+	mocha tests/*
