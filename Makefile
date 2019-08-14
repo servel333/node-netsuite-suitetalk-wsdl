@@ -1,5 +1,5 @@
 
-PACKAGE_VERSION = 2.0.0
+PACKAGE_VERSION = 2.0.1
 
 VERSIONS = \
 	2019_1_0 \
@@ -35,6 +35,8 @@ publish-%:
 	( cd ".build/wsdl_v$(*)" || break ; npm publish )
 
 compile: $(addprefix .build/wsdl_v,$(VERSIONS))
+compile-%: .build/wsdl_v$(*)
+
 publish: $(addprefix publish-,$(VERSIONS))
 
 test:
