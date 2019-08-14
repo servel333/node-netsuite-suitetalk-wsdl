@@ -1,4 +1,5 @@
 {
+  "license": "LGPL-3.0",
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
