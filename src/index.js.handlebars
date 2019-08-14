@@ -5,3 +5,6 @@ const path = require('path');
 exports.path = path.join(__dirname, 'wsdl');
 exports.file = path.join(exports.path, 'netsuite.wsdl');
 exports.version = '{{ wsdl_year }}_{{ wsdl_major }}_{{ wsdl_minor }}';
+exports.versionYear = '{{ wsdl_year }}';
+exports.versionMajor = '{{ wsdl_major }}';
+exports.versionMinor = '{{ wsdl_minor }}';
